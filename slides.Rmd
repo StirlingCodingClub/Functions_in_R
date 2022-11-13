@@ -1,0 +1,157 @@
+---
+title: "An introduction functions in R"
+subtitle: "https://bradduthie.github.com/talks/intro_to_R.pdf"
+author: "Brad Duthie (alexander.duthie@stir.ac.uk)"
+date: "16 November 2022"
+output:
+  beamer_presentation: default
+header-includes:
+- \usepackage{hyperref}
+colorlinks: true
+linkcolor: blue
+urlcolor: blue
+---
+
+
+# What is a function?
+
+\Large
+
+**Functions are ubiquitous and highly useful in R**
+
+\begin{itemize}
+\setlength\itemsep{0.4em}
+\item Code that is organised to perform a specific task$^{1}$
+\item Can get functions in multiple ways
+\begin{enumerate} \Large
+\item R base functions
+\item R package functions
+\item Custom functions
+\end{enumerate}
+\item All functions have a similar structure
+\end{itemize}
+
+\footnotetext[1]{R-Functions. Tutorialspoint. https://www.tutorialspoint.com/r/r\_functions.htm Accessed 13 NOV 2022.}
+
+
+# What is a function?
+
+
+```{r, eval = FALSE}
+function_name <- function(arg1, arg2 = default){
+  # Code that can use arguments, arg1 & arg2
+  return(output);
+}
+```
+
+\vspace{2mm}
+\hrule \pause
+\vspace{2mm}
+
+```{r}
+my_mean <- mean(x = 1:10);
+```
+
+```{r, echo = FALSE}
+print(my_mean);
+```
+
+\vspace{2mm}
+\hrule \pause
+\vspace{2mm}
+
+```{r}
+class(mean);
+```
+
+
+# Base functions in R
+
+\LARGE
+
+**Base R includes hundreds of functions**
+
+\begin{itemize}
+\setlength\itemsep{0.0em}
+\item Most \href{https://stat.ethz.ch/R-manual/R-devel/library/base/html/00Index.html}{base functions} not used$^{1}$
+\item Familiar functions \texttt{mean}, \texttt{plot}, \texttt{summary}
+\item Includes functions like \texttt{+}, \texttt{<-}, \texttt{"}, or \texttt{!}
+\end{itemize}
+
+Additional functions can be found in R packages, or custom made and read into the R console.
+
+\footnotetext[1]{https://stat.ethz.ch/R-manual/R-devel/library/base/html/00Index.html}
+
+
+
+
+
+# Non-base functions in R
+
+**Functions outwith base R available in packages**
+
+\begin{itemize}
+\setlength\itemsep{0.0em}
+\item \href{https://cran.r-project.org/}{Comprehensive R Archive Network} includes 18000+ packages
+\item Packages include specialised functions
+\item Access with `install.packages` and `library`
+\end{itemize}
+
+
+```{r, eval = FALSE}
+install.packages("ggplot2");
+library("ggplot2");
+ggplot(data = dat, mapping = aes(x = wgt, y = totlen))
+       + geom_point();
+```
+
+
+Custom functions can be written in R too with the `function` function.
+
+
+# A custom function in R
+
+Convert from Fahrenheit to Celsius
+
+
+```{r}
+F_to_C <- function(F_temp){
+    C_temp <- (F_temp - 32) * 5/9;
+    return(C_temp);
+}
+```
+
+Highlight the whole function and run it, then you can use it.
+
+
+```{r}
+F_to_C(F_temp = 70);
+```
+
+Now write a custom function for C to F!
+
+
+
+# Functions within functions
+
+**We can use a custom function within another custom function.**
+
+Convert from Fahrenheit to Kelvin.
+
+```{r}
+F_to_K <- function(F_temp){
+  K_temp <- F_to_C(F_temp = F_temp) + 273.15;
+  return(K_temp);
+}
+```
+
+Because Kelvin equals degrees Celsius plus 273.15, we can call `F_to_C`, then add 273.15 to it.
+
+
+
+
+
+
+
+
+
