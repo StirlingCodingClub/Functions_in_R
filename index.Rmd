@@ -1,11 +1,11 @@
 ---
 title: "Functions in R"
 author: "Brad Duthie"
-subtitle: "PDF Version: https://stirlingcodingclub.github.io/Functions_in_R/index.pdf"
-date: "16 Nov 2022"
+subtitle: "HTML Version: https://stirlingcodingclub.github.io/Functions_in_R"
+date: "04 December 2023"
 output:
-  html_document: default
   pdf_document: default
+  html_document: default
 link-citations: yes
 linkcolor: blue
 ---
@@ -15,7 +15,7 @@ Contents
 
 ********************************************************************************
 
-**After reading through this, you should have a working understanding of what functions are in R, how to use them, and how to write your own. Parts of these notes were inspired by what [Thiago Silva](https://www.stir.ac.uk/people/1230046) taught last year.**
+**After reading through this, you should have a working understanding of what functions are in R, how to use them, and how to write your own. Parts of these notes were inspired by what [Thiago Silva](https://www.stir.ac.uk/people/1230046) taught in 2021.**
 
 ********************************************************************************
 

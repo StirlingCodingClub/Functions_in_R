@@ -11,7 +11,7 @@
 
 <meta name="author" content="Brad Duthie" />
 
-<meta name="date" content="2022-11-16" />
+<meta name="date" content="2023-12-04" />
 
 <title>Functions in R</title>
 
@@ -300,8 +300,8 @@ pre code {
   border-radius: 4px;
 }
 
-.tabset-dropdown > .nav-tabs > li.active:before {
-  content: "";
+.tabset-dropdown > .nav-tabs > li.active:before, .tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+  content: "\e259";
   font-family: 'Glyphicons Halflings';
   display: inline-block;
   padding: 10px;
@@ -309,16 +309,9 @@ pre code {
 }
 
 .tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
-  content: "";
-  border: none;
-}
-
-.tabset-dropdown > .nav-tabs.nav-tabs-open:before {
-  content: "";
+  content: "\e258";
   font-family: 'Glyphicons Halflings';
-  display: inline-block;
-  padding: 10px;
-  border-right: 1px solid #ddd;
+  border: none;
 }
 
 .tabset-dropdown > .nav-tabs > li.active {
@@ -366,7 +359,7 @@ pre code {
 <h1 class="title toc-ignore">Functions in R</h1>
 <h3 class="subtitle">PDF Version: <a href="https://stirlingcodingclub.github.io/Functions_in_R/index.pdf" class="uri">https://stirlingcodingclub.github.io/Functions_in_R/index.pdf</a></h3>
 <h4 class="author">Brad Duthie</h4>
-<h4 class="date">16 Nov 2022</h4>
+<h4 class="date">04 December 2023</h4>
 
 </div>
 
@@ -376,8 +369,8 @@ pre code {
 <hr />
 <p><strong>After reading through this, you should have a working
 understanding of what functions are in R, how to use them, and how to
-write your own. Parts of these notes were inspired by what <a href="https://www.stir.ac.uk/people/1230046">Thiago Silva</a> taught
-last year.</strong></p>
+write your own. Parts of these notes were inspired by what <a href="https://www.stir.ac.uk/people/1230046">Thiago Silva</a> taught in
+2021.</strong></p>
 <hr />
 <ul>
 <li><a href="#packages">Installing packages in R</a></li>
@@ -419,8 +412,7 @@ functions into the console. There are 18000+ packages in R, all free to
 download and use. If you use one of these packages, you can cite it with
 the <code>citation()</code> function in base R.</p>
 <pre class="r"><code>citation(&quot;swirl&quot;);</code></pre>
-<pre><code>## 
-## To cite package &#39;swirl&#39; in publications use:
+<pre><code>## To cite package &#39;swirl&#39; in publications use:
 ## 
 ##   Kross S, Carchedi N, Bauer B, Grdina G (2020). _swirl: Learn R, in
 ##   R_. R package version 2.4.5,
@@ -541,7 +533,7 @@ assigns the value to <code>K_temp</code>. Then it returns the calculated
 <code>F_to_K</code> function above, so we cannot just call it without
 defining a value. If we do, then we get an error message.</p>
 <pre class="r"><code>F_to_K();</code></pre>
-<pre><code>## Error in F_to_C(F_temp = F_temp): argument &quot;F_temp&quot; is missing, with no default</code></pre>
+<pre><code>## Error in F_to_K(): argument &quot;F_temp&quot; is missing, with no default</code></pre>
 <p>We can try something else. Maybe we want to write a function that
 converts degrees Fahrenheit to <em>either</em> Celsius or Kelvin. We can
 do this with a new function that includes two arguments, one specifying
@@ -683,16 +675,15 @@ there almost never any need for it once you know how to use a loop.
 Nevertheless, we can run the function to see the output.</p>
 <pre class="r"><code>new_rec1 &lt;- recursive_function(stop_number = 4, interval = 1:10);
 return(new_rec1);</code></pre>
-<pre><code>##  [1] 3 8 8 8 3 8 9 3 8 9 2 5 5 9 4</code></pre>
+<pre><code>## [1] 9 1 9 4</code></pre>
 <p>We can try it again.</p>
 <pre class="r"><code>new_rec2 &lt;- recursive_function(stop_number = 4, interval = 1:10);
 return(new_rec2);</code></pre>
-<pre><code>##  [1]  8  9  6  1  2 10  7  5  3  8  5  8 10  1  8  9 10  8 10  6  1  8  9  7  1
-## [26]  5  8  7  9  1  7 10  7  8  9  6  7  4</code></pre>
+<pre><code>## [1]  6  7 10  5  9  4</code></pre>
 <p>One more time.</p>
 <pre class="r"><code>new_rec3 &lt;- recursive_function(stop_number = 4, interval = 1:10);
 return(new_rec3);</code></pre>
-<pre><code>## [1] 10  7  5  6  4</code></pre>
+<pre><code>## [1] 5 8 4</code></pre>
 <p>Note that we get a different answer each time, with a vector of
 varying lengths.</p>
 </div>
@@ -726,7 +717,7 @@ environment outside of the function does not retain <code>aa</code>,
 <code>bb</code>, or <code>cc</code>. If we try to print one of these
 values, R cannot find it.</p>
 <pre class="r"><code>print(aa);</code></pre>
-<pre><code>## Error in print(aa): object &#39;aa&#39; not found</code></pre>
+<pre><code>## Error in eval(expr, envir, enclos): object &#39;aa&#39; not found</code></pre>
 <p>This is not true in the other direction, going from the global to the
 local. For example, say that we first define <code>xx</code>,
 <code>yy</code>, and <code>zz</code>, then a function summing them

@@ -29,6 +29,7 @@ urlcolor: blue
 \item Custom functions
 \end{enumerate}
 \item All functions have a similar structure
+\item \textbf{Today you will learn to write functions}
 \end{itemize}
 
 \footnotetext[1]{R-Functions. Tutorialspoint. https://www.tutorialspoint.com/r/r\_functions.htm Accessed 13 NOV 2022.}
@@ -147,9 +148,61 @@ F_to_K <- function(F_temp){
 
 Because Kelvin equals degrees Celsius plus 273.15, we can call `F_to_C`, then add 273.15 to it.
 
+# Functions can go in functions
+
+```{r}
+F_convert <- function(F_temp = 70, 
+                      conversion = "Celsius"){
+  if(conversion == "Celsius"){
+    converted <- F_to_C(F_temp = F_temp);
+  }
+  if(conversion == "Kelvin"){
+    converted <- F_to_K(F_temp = F_temp);
+  }
+  return(converted);
+}
+```
+
+Convert to Kelvin again.
+
+```{r}
+F_convert(F_temp = 70, conversion = "Kelvin");
+```
 
 
+# Always good to add error messages
 
+\small
+
+```{r}
+F_convert <- function(F_temp = 70, 
+                      conversion = "Celsius"){
+  if(conversion != "Celsius" & conversion != "Kelvin"){
+    stop("'conversion' must be 'Celsius' or 'Kelvin'.");
+  }
+  if(is.numeric(F_temp) == FALSE){
+    stop("F_temp argument must be numeric");
+  }
+  if(conversion == "Celsius"){
+    converted <- F_to_C(F_temp = F_temp);
+  }else{
+    converted <- F_to_K(F_temp = F_temp);
+  }
+  return(converted);
+}
+```
+
+# Some additional points
+
+\Huge
+
+\begin{itemize}
+\item Recursive functions
+\item Function environment
+\item Order of arguments
+\item Function returns
+\item do.call function
+\end{itemize}
 
 
 
