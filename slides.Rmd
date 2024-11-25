@@ -1,8 +1,8 @@
 ---
 title: "An introduction functions in R"
-subtitle: "https://bradduthie.github.com/talks/intro_to_R.pdf"
+subtitle: "https://bradduthie.github.com/talks/R_functions.pdf"
 author: "Brad Duthie (alexander.duthie@stir.ac.uk)"
-date: "16 November 2022"
+date: "06 December 2023"
 output:
   beamer_presentation: default
 header-includes:
@@ -32,7 +32,7 @@ urlcolor: blue
 \item \textbf{Today you will learn to write functions}
 \end{itemize}
 
-\footnotetext[1]{R-Functions. Tutorialspoint. https://www.tutorialspoint.com/r/r\_functions.htm Accessed 13 NOV 2022.}
+\footnotetext[1]{R-Functions. Tutorialspoint. https://www.tutorialspoint.com/r/r\_functions.htm Accessed 6 DEC 2023.}
 
 
 # What is a function?

@@ -2,7 +2,7 @@
 title: "Functions in R"
 author: "Brad Duthie"
 subtitle: "HTML Version: https://stirlingcodingclub.github.io/Functions_in_R"
-date: "04 December 2023"
+date: "27 November 2024"
 output:
   pdf_document: default
   html_document: default
