@@ -4,8 +4,8 @@ author: "Brad Duthie"
 subtitle: "HTML Version: https://stirlingcodingclub.github.io/Functions_in_R"
 date: "27 November 2024"
 output:
-  pdf_document: default
   html_document: default
+  pdf_document: default
 link-citations: yes
 linkcolor: blue
 ---
